@@ -54,6 +54,10 @@ async fn main() -> Result<(), reqwest::Error> {
     
     println!("region: {:#?}", json_response.region);
     println!("pokemon_entries: {:#?}", json_response.pokemon_entries.len());
+    println!("All Pokemon Names:");
+    for pokemon in json_response.pokemon_entries.iter() {
+        println!("{} - {}", pokemon.entry_number, pokemon.pokemon_species.name);
+    }
     
     Ok(())
 }
